@@ -5,7 +5,7 @@ import networkx as nx
 
 
 class Node:
-    """Classe que representa um nó na árvore binária AVL."""
+    """Classe que representa um nó no Grafo."""
     def __init__(self, value):
         self.value = value
         self.left = None
@@ -14,16 +14,16 @@ class Node:
 
 
 class AVLTree:
-    """Classe que representa a Árvore Binária AVL."""
+    """Classe que representa o Grafo."""
     def __init__(self):
         self.root = None
 
     def insert(self, value):
-        """Insere um valor na árvore e balanceia a árvore."""
+        """Insere um valor no Grafo e balanceia o Grafo."""
         self.root = self._insert(self.root, value)
 
     def _insert(self, node, value):
-        """Recursivamente insere um valor na árvore e balanceia após a inserção."""
+        """Recursivamente insere um valor no grafo e balanceia após a inserção."""
         if not node:
             return Node(value)
 
@@ -109,7 +109,7 @@ class AVLTree:
         return y
 
     def generate_edges(self):
-        """Gera as arestas para a visualização da árvore."""
+        """Gera as arestas para a visualização do Grafo."""
         edges = []
         self._generate_edges(self.root, edges)
         return edges
@@ -132,12 +132,12 @@ class BinaryTreeApp:
 
         # Configuração da janela principal
         self.root = root
-        self.root.title("Árvore Binária AVL")
+        self.root.title("Grafo")
         self.root.geometry("400x300")
         self.root.configure(bg="#e0f7fa")
 
         # Título
-        self.title_label = tk.Label(root, text="Árvore Binária AVL", font=("Arial", 16), bg="#e0f7fa", fg="#00796b")
+        self.title_label = tk.Label(root, text="Grafo", font=("Arial", 16), bg="#e0f7fa", fg="#00796b")
         self.title_label.pack(pady=10)
 
         # Caixa de entrada para o número
@@ -148,10 +148,10 @@ class BinaryTreeApp:
         self.number_entry.pack(pady=5)
 
         # Botões
-        self.insert_button = tk.Button(root, text="Inserir na Árvore", font=("Arial", 12), bg="#004d40", fg="white", command=self.insert_number)
+        self.insert_button = tk.Button(root, text="Inserir no Grafo", font=("Arial", 12), bg="#004d40", fg="white", command=self.insert_number)
         self.insert_button.pack(pady=10)
 
-        self.display_button = tk.Button(root, text="Exibir Árvore", font=("Arial", 12), bg="#004d40", fg="white", command=self.display_tree)
+        self.display_button = tk.Button(root, text="Exibir Grafo", font=("Arial", 12), bg="#004d40", fg="white", command=self.display_tree)
         self.display_button.pack(pady=5)
 
     def insert_number(self):
